@@ -87,8 +87,8 @@ var myWebPage = ht.doc(
 					)
 				)
 			)
-        )
-    )
+		)
+	)
 );
 
 ```
