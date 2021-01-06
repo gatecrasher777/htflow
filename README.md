@@ -31,19 +31,19 @@ var myWebPage = ht.doc(
 	ht.html(
 		ht.head(
 			ht.meta(
-                {
+				{
 					charset:'utf8'
 				}
 			),
-    		ht.link(
+			ht.link(
 				{
-    				rel:'stylesheet',
-    				href: './css/wapp.css'
+					rel:'stylesheet',
+					href: './css/wapp.css'
 				}
 			),
-    		ht.script(
+			ht.script(
 				{
-                    src: './js/wapp.js'
+					src: './js/wapp.js'
 				}
 			),
    			ht.title(
