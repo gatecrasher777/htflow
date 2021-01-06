@@ -1,13 +1,13 @@
 # htflow
 
-Add structured html5 codeflow into your javascript/nodejs projects
+Add structured html5 codeflow into your javascript/nodejs projects.
 
 ## Features
 
-* All standard html5 tags as class methods
-* Flexible html input; string, function, array of strings or functions, multiple arguments
-* Inbuilt method loops, conditionals and switches so your html and programming logic can reside together
-* Provides several helper methods
+* All standard html5 tags as class methods.
+* Flexible html input; string, function, array of strings or functions, multiple arguments.
+* Inbuilt method loops, conditionals and switches so your html and programming logic can reside together.
+* Provides several helper methods.
 * Fast, lightweight, no dependencies.
 
 ## Usage
@@ -204,13 +204,13 @@ After registering `singleReg('myothercustomtag');` you can then use `ht.myotherc
 ```javascript
 ht.doc([html]);
 ```
-Generates html5 initial document type string with optional __html__ content
+Generates html5 initial document type string with optional __html__ content.
 ### methods as control structures
 #### ifElse
 ```javascript
 ht.ifElse(cond, htmlIf[, htmlElse]);
 ```
-If __cond__ (boolean), returns __htmlIf__ or else returns __htmlElse__ (optional)
+If __cond__ (boolean), returns __htmlIf__ or else returns __htmlElse__ (optional.)
 #### forLoop
 ```javascript
 ht.forLoop(start, end, (i) => {...} );
@@ -249,7 +249,7 @@ switch (val) {
 ```javascript
 ht.forEach(vals, (e,i,a) => {...});
 ```
-Given an array of values __vals__, html is processed sequentially for each array value with e = element, i = index, a = array
+Given an array of values __vals__, html is processed sequentially for each array value with e = element, i = index, a = array.
 #### forIn
 ```javascript
 ht.forIn(obj, (k) => {...});
@@ -310,7 +310,7 @@ function test(event,val1,val2) {
 ```javascript
 ht.css(prop);
 ```
-Helps include style properties within your html. (Rather use css stylesheets for non-dynamic styling)   
+Helps include style properties within your html. (Rather use css stylesheets for non-dynamic styling.)   
 __prop__ is an enumerable object whose key value pairs represent the css properties and values you wish to set or change.
 
 ## Install
