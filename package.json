@@ -1,0 +1,31 @@
+{
+  "name": "htflow",
+  "version": "1.0.0",
+  "description": "add structured html5 codeflow into your javascript/nodejs applications",
+  "main": "htflow.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gatecrasher777/htflow.git"
+  },
+  "keywords": [
+    "html",
+    "html5",
+    "tag",
+    "element",
+    "attribute",
+    "property",
+    "content",
+    "builder",
+    "operator",
+    "create"
+  ],
+  "author": "gatecrasher777",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gatecrasher777/htflow/issues"
+  },
+  "homepage": "https://github.com/gatecrasher777/htflow#readme"
+}
