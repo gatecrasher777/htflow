@@ -37,10 +37,10 @@ var myWebPage = ht.doc(
             ),
     		ht.link(
                 {
-    			    rel:'stylesheet',
+    				rel:'stylesheet',
     				href: './css/wapp.css'
                 }
-            ),
+			),
     		ht.script(
                 {
                     src: './js/wapp.js'
@@ -141,7 +141,7 @@ var myTable = ht.table(
 #### Build a dropdown control:
 ```javascript
 var mySelect = ht.div(
-    {
+	{
         id:'control1'
     },
 	ht.label(
@@ -155,7 +155,7 @@ var mySelect = ht.div(
 			id: 'display',
 			onchange: ht.cmd('wapp.displayChanged'),
 			title: 'Specify the maximum number of foobats to display'
-        },
+		},
 		ht.forEach(
 			[3,6,9,12,15,18,21,24,30,45,60,90,120,150,180,240,300,600,900],
 			(e,i,a) => {
