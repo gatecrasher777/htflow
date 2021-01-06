@@ -28,65 +28,65 @@ var ht = require('htflow')();
 #### Build a wepage:
 ```javascript
 var myWebPage = ht.doc(
-    ht.html(
-        ht.head(
-            ht.meta(
+	ht.html(
+		ht.head(
+			ht.meta(
                 {
-                    charset:'utf8'
-                }
-            ),
+					charset:'utf8'
+				}
+			),
     		ht.link(
-                {
+				{
     				rel:'stylesheet',
     				href: './css/wapp.css'
-                }
+				}
 			),
     		ht.script(
-                {
+				{
                     src: './js/wapp.js'
-                }
-            ),
-    		ht.title(
-                'Hello'
-            )
-        ),
-        ht.body(
-            {
-                onload: ht.cmd('wapp.start',0),
-                style: ht.css(
-                    {
-                        margin : '0px',
-                        width: '100%',
-                        height: '100%'
-                    }
-                )
-            },
-            ht.main(
-                {
-                    id: 'main'
-                },
-                ht.div(
-                    {
-                        id: 'hellodiv'
-                    },
-                    ht.p(
-                        'hello world'
-                    ),
-                    ht.button(
-                        {
-                            onclick: ht.cmd('wapp.magic'),
-                            title: 'click on me for some magic'
-                        },
-                        ht.img(
-                            {
-                                src: './img/smileyface.jpg',
-                                height: 24,
-                                width: 24               
-                            }
-                        )
-                    )
-                )
-            )
+				}
+			),
+   			ht.title(
+				'Hello'
+			)
+		),
+		ht.body(
+			{
+				onload: ht.cmd('wapp.start',0),
+				style: ht.css(
+					{
+						margin : '0px',
+						width: '100%',
+						height: '100%'
+					}
+				)
+			},
+			ht.main(
+				{
+					id: 'main'
+				},
+				ht.div(
+					{
+						id: 'hellodiv'
+					},
+					ht.p(
+						'hello world'
+					),
+					ht.button(
+						{
+							onclick: ht.cmd('wapp.magic'),
+							title: 'click on me for some magic'
+						},
+						ht.img(
+							{
+								src: './img/smileyface.jpg',
+								height: 24,
+								width: 24               
+							}
+						)
+					)
+				)
+			)
         )
     )
 );
@@ -95,46 +95,46 @@ var myWebPage = ht.doc(
 #### Build a table:
 ```javascript
 var myTable = ht.table(
-    {
-        id: 'mytable'
-    },
-    ht.thead(
-        ht.tr(
-            ht.forEach(
-                ['Rec#','Firstname','Surname','Address','Suburb','Mobile'],
-                (e,i,a) => {
-                    return ht.th(e);
-                }
-            )
-        )
-    ),
-    ht.tbody(
-        ht.forEach(
-            myData, //an array of object records
-            (e,i,a) => {
-                return ht.tr(
-                    ht.td(
-                        {
-                            align: 'right',
-                            onmouseover: ht.evt('wapp.hover')
-                        },
-                        i
-                    ),
-                    ht.forIn(
-                        e,
-                        (k) => {
-                            return ht.td(
-                                {
-                                    align: 'left'
-                                },
-                                e[k]
-                            )
-                        }
-                    )
-                )
-            }
-        )
-    )
+	{
+		id: 'mytable'
+	},
+	ht.thead(
+		ht.tr(
+			ht.forEach(
+				['Rec#','Firstname','Surname','Address','Suburb','Mobile'],
+				(e,i,a) => {
+					return ht.th(e);
+				}
+			)
+		)
+	),
+	ht.tbody(
+		ht.forEach(
+			myData, //an array of object records
+			(e,i,a) => {
+				return ht.tr(
+					ht.td(
+						{
+							align: 'right',
+							onmouseover: ht.evt('wapp.hover')
+						},
+						i
+					),
+					ht.forIn(
+						e,
+						(k) => {
+							return ht.td(
+								{
+									align: 'left'
+								},
+								e[k]
+							)
+						}
+					)
+				)
+			}
+		)
+	)
 );
 
 ```
@@ -142,16 +142,16 @@ var myTable = ht.table(
 ```javascript
 var mySelect = ht.div(
 	{
-        id:'control1'
-    },
+		id:'control1'
+	},
 	ht.label(
-	    {
-            'for':'display'
-        },
+		{
+			'for':'display'
+		},
 		'Display:'
 	),
 	ht.select(
-	    { 
+		{ 
 			id: 'display',
 			onchange: ht.cmd('wapp.displayChanged'),
 			title: 'Specify the maximum number of foobats to display'
@@ -160,19 +160,19 @@ var mySelect = ht.div(
 			[3,6,9,12,15,18,21,24,30,45,60,90,120,150,180,240,300,600,900],
 			(e,i,a) => {
 				var a = {
-                    value: e
-                };
+					value: e
+				};
 				if (e == wapp.display) a.selected = 'selected';
 				return ht.option(
 					a,
 					ht.concat(
-					    e,
-					    ' foobats'
+						e,
+						' foobats'
 					)
 				)
 			}
-        )
-    )
+		)
+	)
 );
 ```
 ## Methods
