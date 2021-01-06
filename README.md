@@ -1,13 +1,13 @@
 # htflow
 
-Add structured html5 codeflow into your javascript/nodejs projects
+Add structured html5 codeflow into your javascript/nodejs projects.
 
 ## Features
 
-* All standard html5 tags as class methods
-* Flexible html input; string, function, array of strings or functions, multiple arguments
-* Inbuilt method loops, conditionals and switches so your html and programming logic can reside together
-* Provides several helper methods
+* All standard html5 tags as class methods.
+* Flexible html input; string, function, array of strings or functions, multiple arguments.
+* Inbuilt method loops, conditionals and switches so your html and programming logic can reside together.
+* Provides several helper methods.
 * Fast, lightweight, no dependencies.
 
 ## Usage
@@ -189,31 +189,31 @@ __attr__ is an object with key value pairs matching element attributes/propertie
 __html__ is either a string, a function ()=>{...}, or an array of strings and/or functions returning strings, the string values of which are sequentially appended. 
 #### doubleReg
 ```javascript
-ht.doubleReg(tag)
+ht.doubleReg(tag);
 ```
 Registers a method for a custom html element __tag__ with double tags (opening/closing pair).  
 After registering `doubleReg('mycustomtag');` you can then use `ht.mycustomtag([attr][,html][,...]);` in your code.
 
 #### singleReg
 ```javascript
-ht.singleReg(tag)
+ht.singleReg(tag);
 ```
 Registers a function for a custom html element __tag__ with single tag.  
 After registering `singleReg('myothercustomtag');` you can then use `ht.myothercustomtag([attr]);` in your code.
 #### doc
 ```javascript
-ht.doc([html])
+ht.doc([html]);
 ```
-Generates html5 initial document type string with optional __html__ content
+Generates html5 initial document type string with optional __html__ content.
 ### methods as control structures
 #### ifElse
 ```javascript
-ht.ifElse(cond, htmlIf[, htmlElse])
+ht.ifElse(cond, htmlIf[, htmlElse]);
 ```
-If __cond__ (boolean), returns __htmlIf__ or else returns __htmlElse__ (optional)
+If __cond__ (boolean), returns __htmlIf__ or else returns __htmlElse__ (optional.)
 #### forLoop
 ```javascript
-ht.forLoop(start, end, (i) => {...} )
+ht.forLoop(start, end, (i) => {...} );
 ```
 Loop __i__ incrementally from __start__ to __end__ (step +1).  
 If start is less than end, step is -1.  
@@ -221,7 +221,7 @@ The numbers __start__ and __end__ are inclusive.
 Let `(i) => {...}` return __false__ to break prematurely from the loop. 
 #### switchCase
 ```javascript
-ht.switchCase(val,opts,html[,htmlDefault])
+ht.switchCase(val,opts,html[,htmlDefault]);
 ```
 Given a value __val__, and an array of possible matches __opts__ then __html__ is the corresponding array of possible html outputs.  
 If there is no match for __val__, __htmlDefault__ is the default output.  
@@ -247,19 +247,19 @@ switch (val) {
 ```
 #### forEach
 ```javascript
-ht.forEach(vals, (e,i,a) => {...}) 
+ht.forEach(vals, (e,i,a) => {...});
 ```
-Given an array of values __vals__, html is processed sequentially for each array value with e = element, i = index, a = array
+Given an array of values __vals__, html is processed sequentially for each array value with e = element, i = index, a = array.
 #### forIn
 ```javascript
-ht.forIn(obj, (k) => {...})
+ht.forIn(obj, (k) => {...});
 ```
 Given an object __obj__, html is processed sequentially for each of its enumerable properties with k = key.  
 To then access the property value in your function use __obj[k]__.
 #### whileDo/doWhile
 ```javascript
-whileDo(cond, (cond) => {...})
-doWhile(cond, (cond) => {...})
+whileDo(cond, (cond) => {...});
+doWhile(cond, (cond) => {...});
 ```
 In while...do: html will be processed while boolean __cond__ is true.  
 In do...while: html will be processed at least once and repeated while __cond__ is true.  
@@ -267,12 +267,12 @@ The function `(cond) => {...}` must manipulate __cond__ to false in order to exi
 ### helper methods
 #### concat
 ```javascript
-ht.concat(html[,html][,...])
+ht.concat(html[,html][,...]);
 ```
 Add html content together (aesthetic alternative to using +'s)
 #### cmd
 ```javascript
-ht.cmd(func[,param][,param][,...])
+ht.cmd(func[,param][,param][,...]);
 ```
 Helps construct an embedded js event command in html.    
 __func__ is a string of the target js method name.  
@@ -280,7 +280,7 @@ __param__ are optional parameters to pass to the method.
 For example, clicking on an element with
 ```javascript
 {
-  onclick: ht.cmd('validate',str,num)
+  onclick: ht.cmd('validate',str,num);
 } 
 ```
 triggers  
@@ -292,12 +292,12 @@ function validate(str,num) {
 ```
 #### evt
 ```javascript
-ht.evt(func,[param,][param,][...]))
+ht.evt(func,[param,][param,][...]));
 ```
 Operates just like ht.cmd except an 'event' variable is assumed as the first parameter: For example a key down event
 ```javascript
 {
-  onkeydown: ht.evt('test',val1,val2)
+  onkeydown: ht.evt('test',val1,val2);
 }
 ```
 triggers
@@ -308,9 +308,9 @@ function test(event,val1,val2) {
 ```
 #### css
 ```javascript
-ht.css(prop) 
+ht.css(prop);
 ```
-Helps include style properties within your html. (Rather use css stylesheets for non-dynamic styling)   
+Helps include style properties within your html. (Rather use css stylesheets for non-dynamic styling.)   
 __prop__ is an enumerable object whose key value pairs represent the css properties and values you wish to set or change.
 
 ## Install
