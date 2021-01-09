@@ -326,7 +326,7 @@ __prop__ is an enumerable object whose key value pairs represent the css propert
 ```bash
 npm install htflow
 ```
-## tests
+## Tests
 Tests are written in __Mocha__
 ```bash
 npm test
