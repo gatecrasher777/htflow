@@ -206,11 +206,14 @@ ht.doc([html]);
 ```
 Generates html5 initial document type string with optional __html__ content.
 ### methods as control structures
-#### ifElse
+#### doWhile
 ```javascript
-ht.ifElse(cond, htmlIf[, htmlElse]);
+doWhile(test, (cond) => {...});
 ```
-If __cond__ (boolean), returns __htmlIf__ or else returns __htmlElse__ (optional.)
+__test__ is a function returning true or false.  
+__cond__ is the boolean result of the last test.  
+`(cond) => {...}` will be executed while the boolean result of __test()__ is true.  
+ in order to exit the loop `(cond) => {...}` must manipulate in-scope variables so that a subsequent __test()__ returns false.
 #### forLoop
 ```javascript
 ht.forLoop(start, end, (i) => {...} );
@@ -219,6 +222,22 @@ Loop __i__ incrementally from __start__ to __end__ (step +1).
 If start is less than end, step is -1.  
 The numbers __start__ and __end__ are inclusive.  
 Let `(i) => {...}` return __false__ to break prematurely from the loop. 
+#### forEach
+```javascript
+ht.forEach(vals, (e,i,a) => {...});
+```
+Given an array of values __vals__, html is processed sequentially for each array value with e = element, i = index, a = array.
+#### forIn
+```javascript
+ht.forIn(obj, (k) => {...});
+```
+Given an object __obj__, html is processed sequentially for each of its enumerable properties with k = key.  
+To then access the property value in your function use __obj[k]__.
+#### ifElse
+```javascript
+ht.ifElse(cond, htmlIf[, htmlElse]);
+```
+If __cond__ (boolean), returns __htmlIf__ or else returns __htmlElse__ (optional.)
 #### switchCase
 ```javascript
 ht.switchCase(val,opts,html[,htmlDefault]);
@@ -245,27 +264,14 @@ switch (val) {
   default: return 'Z';
 }
 ```
-#### forEach
-```javascript
-ht.forEach(vals, (e,i,a) => {...});
-```
-Given an array of values __vals__, html is processed sequentially for each array value with e = element, i = index, a = array.
-#### forIn
-```javascript
-ht.forIn(obj, (k) => {...});
-```
-Given an object __obj__, html is processed sequentially for each of its enumerable properties with k = key.  
-To then access the property value in your function use __obj[k]__.
-#### whileDo/doWhile
+#### whileDo
 ```javascript
 whileDo(test, (cond) => {...});
-doWhile(test, (cond) => {...});
 ```
-__test__ is a function returning true or false  
-__cond__ is the boolean result of the last test  
-In while...do: html will be processed while boolean result of __test()__ is true.
-In do...while: html will be processed at least once and repeated while __test()__ is true. (N.B. Initial value of __cond__ is undefined.)  
-The function `(cond) => {...}` must manipulate in-scope variables so that a subsequent __test()__ returns false in order to exit the loop.
+__test__ is a function returning true or false.  
+__cond__ is the boolean result of the last test.   
+`(cond) => {...}` will be executed at least once then repeated while __test()__ is true. (N.B. The initial value of __cond__ is undefined.)  
+In order to exit the loop `(cond) => {...}` must manipulate in-scope variables so that a subsequent __test()__ returns false.
 ### helper methods
 #### concat
 ```javascript
