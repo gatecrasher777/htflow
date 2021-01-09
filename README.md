@@ -261,7 +261,7 @@ To then access the property value in your function use __obj[k]__.
 whileDo(test, (cond) => {...});
 doWhile(test, (cond) => {...});
 ```
-__test__ is a function returning true or false
+__test__ is a function returning true or false  
 __cond__ is the boolean result of the current test
 In while...do: html will be processed while boolean result of __test()__ is true.
 In do...while: html will be processed at least once and repeated while __test()__ is true.  
