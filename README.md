@@ -258,12 +258,14 @@ Given an object __obj__, html is processed sequentially for each of its enumerab
 To then access the property value in your function use __obj[k]__.
 #### whileDo/doWhile
 ```javascript
-whileDo(cond, (cond) => {...});
-doWhile(cond, (cond) => {...});
+whileDo(test, (cond) => {...});
+doWhile(test, (cond) => {...});
 ```
-In while...do: html will be processed while boolean __cond__ is true.  
-In do...while: html will be processed at least once and repeated while __cond__ is true.  
-The function `(cond) => {...}` must manipulate __cond__ to false in order to exit the loop.
+__test__ is a function returning true or false
+__cond__ is the boolean result of the current test
+In while...do: html will be processed while boolean result of __test()__ is true.
+In do...while: html will be processed at least once and repeated while __test()__ is true.  
+The function `(cond) => {...}` must manipulate in-scope variables so that __test()__ returns false in order to exit the loop.
 ### helper methods
 #### concat
 ```javascript
