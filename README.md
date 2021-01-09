@@ -118,7 +118,7 @@ var myTable = ht.table(
 							align: 'right',
 							onmouseover: ht.evt('wapp.hover')
 						},
-						i
+						i+1
 					),
 					ht.forIn(
 						e,
