@@ -157,7 +157,7 @@ var mySelect = ht.div(
 			title: 'Specify the maximum number of foobats to display'
 		},
 		ht.forEach(
-			[3,6,9,12,15,18,21,24,30,45,60,90,120,150,180,240,300,600,900],
+			[3,6,9,12,15,18,24,30],
 			(e,i,a) => {
 				var a = {
 					value: e
