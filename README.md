@@ -25,7 +25,7 @@ or more simply:
 var ht = require('htflow')();
 ```
 ## Examples
-#### Build a wepage:
+#### Build a web page:
 ```javascript
 var myWebPage = ht.doc(
 	ht.html(
