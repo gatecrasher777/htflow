@@ -34,6 +34,8 @@ class htflowClass {
 					h+=s;
 				}
 			} else {
+				if ((e===undefined) || (e===null) || (typeof e === 'object')) e = '';
+				if (typeof e !== 'string') e = e.toString();
 				h+=e;
 			}
 		});
@@ -42,6 +44,7 @@ class htflowClass {
 	
 	attrStr(attr) {
 		var a = '';
+		if ((attr === undefined) || (attr === null)) return a;
 		Object.keys(attr).forEach( (k) => {
 			a += ' '+k;
 			if (attr[k] !='') a += '="'+attr[k]+'"';
@@ -71,7 +74,7 @@ class htflowClass {
 		this[tag] = function(a) {
 			var s=0;
 			var attr={};
-			if (typeof a === "object") {
+			if ((a !== undefined) && (typeof a === "object") && (!Array.isArray(a))) {
 				attr = a;
 				s = 1;
 			}
@@ -130,102 +133,145 @@ class htflowClass {
 	}
 	
 	switchCase(val,opts,html,htmlDefault) {
-		var usenext = false;
-		for (var i = 0; i < opts.length; i++) {
-			if( (val == opts[i]) || usenext) {
-				if (html[i] == '||') {
-					usenext = true;
-				} else {
-					return this.item(html[i],val)
+		if (!Array.isArray(opts)) opts = [opts];
+		if (!Array.isArray(html)) html = [html];
+		if (opts.length == html.length) {
+			var usenext = false;
+			for (var i = 0; i < opts.length; i++) {
+				if( (val == opts[i]) || usenext) {
+					if (html[i] == '||') {
+						usenext = true;
+					} else {
+						return this.item(html[i],val)
+					}
 				}
 			}
+			if (htmlDefault !== undefined) return this.item(htmlDefault,val);
 		}
-		if (htmlDefault !== undefined) return item(htmlDefault,val);
 		return '';
 	}
 	
 	forEach(vals,html) {
-		var h='';
-		html = Array.prototype.slice.call(arguments,1);
-		if (vals !== undefined) {
-			vals.forEach((e,i,a) => {
-				h += this.item(html,e,i,a);
-			});
+		if ((typeof vals ==='object') && (Array.isArray(vals))) {
+			var h='';
+			html = Array.prototype.slice.call(arguments,1);
+			if (vals !== undefined) {
+				vals.forEach((e,i,a) => {
+					h += this.item(html,e,i,a);
+				});
+			}
+			return h;
 		}
-		return h;
+		return '';
 	}
 	
 	forIn(obj,html) {
-		var h = '';
-		html = Array.prototype.slice.call(arguments,1);
-		Object.keys(obj).forEach( (k) => {
-			h += this.item(html,obj[k]);
-		});
-		return h;		
+		if ((obj === undefined) || (obj === null)) return '';
+		if (typeof obj === 'object') {
+			var h = '';
+			html = Array.prototype.slice.call(arguments,1);
+			Object.keys(obj).forEach( (k) => {
+				h += this.item(html,k,obj[k]);
+			});
+			return h;
+		}
+		return '';
 	}
 	
-	whileDo(cond,html) {
-		var h = '';
-		html = Array.prototype.slice.call(arguments,1);
-		while(cond) {
-			h += this.item(html,cond);
+	whileDo(test,html) {
+		if (typeof test === 'function') {
+			var h = '';
+			html = Array.prototype.slice.call(arguments,1);
+			var cond = test();
+			while(cond) {
+				h += this.item(html,cond);
+				cond = test();
+			}
+			return h;
 		}
-		return h;
+		return '';
 	}
 
-	doWhile(cond,html) {
-		var h = '';
-		html = Array.prototype.slice.call(arguments,1);
-		do {
-			h += this.item(html,cond);
-		} while(cond);
-		return h;
+	doWhile(test,html) {
+		if (typeof test === 'function') {
+			var h = '';
+			html = Array.prototype.slice.call(arguments,1);
+			var cond;
+			do {
+				h += this.item(html,cond);
+				cond = test();
+			} while(cond);
+			return h;
+		}
+		return '';
 	}
 	
 	concat(html) {
+		var h = '';
 		html = Array.prototype.slice.call(arguments,0);
-		return html.join('');
+		html.forEach((e)=>{
+			h += this.item(e);
+		})
+		return h;
 	}
 	
 	cmd(func,param) {
-		var h = func+'(';
-		var v = '';
-		var j = ''
-		var args = Array.prototype.slice.call(arguments,1);
-		args.forEach((e)=>{
-			if (typeof e === 'string') {
-				v+=j+'\''+e+'\'';
-			} else {
-				v+=j+e.toString();
-			}
-			j=',';
-		});
-		h += v+');';
-		return h;
+		if (typeof func === 'string') {
+			var h = func+'(';
+			var v = '';
+			var j = ''
+			var args = Array.prototype.slice.call(arguments,1);
+			args.forEach((e)=>{
+				if (e === undefined) {
+					v+=j+'undefined'
+				} else if (typeof e === 'object') {
+					v+=j+JSON.stringify(e);
+				} else if (typeof e === 'string') {
+					v+=j+'\"'+e+'\"';
+				} else {
+					v+=j+e.toString();
+				}
+				j=',';
+			});
+			h += v+');';
+			return h;
+		}
+		return '';
 	}
 
 	evt(func,param) {
-		var h = func+'(';
-		var v = 'event';
-		var j = ','
-		var args = Array.prototype.slice.call(arguments,1);
-		args.forEach((e)=>{
-			if (typeof e === 'string') {
-				v+=j+'\''+e+'\'';
-			} else {
-				v+=j+e.toString();
-			}
-		});
-		h += v+');';
-		return h;
+		if (typeof func === 'string') {
+			var h = func+'(';
+			var v = 'event';
+			var j = ','
+			var args = Array.prototype.slice.call(arguments,1);
+			args.forEach((e)=>{
+				if (e === undefined) {
+					v+=j+'undefined'
+				} else if (typeof e === 'object') {
+					v+=j+JSON.stringify(e);	
+				} else if (typeof e === 'string') {
+					v+=j+'\"'+e+'\"';
+				} else {
+					v+=j+e.toString();
+				}
+			});
+			h += v+');';
+			return h;
+		}
+		return '';
 	}
 
 	css(prop) {
-		var a = '';
-		Object.keys(prop).forEach( (k) => {
-			a += k+':'+prop[k]+';';
-		});
-		return a;
+		if ((prop === undefined) || (prop === null)) return '';
+		if ((typeof prop === 'object') && (!Array.isArray(prop))) {
+			var a = '';
+			Object.keys(prop).forEach( (k) => {
+				a += k+':'+prop[k]+';';
+			});
+			return a;
+		}
+		return '';
 	}
 
 }
