@@ -262,10 +262,10 @@ whileDo(test, (cond) => {...});
 doWhile(test, (cond) => {...});
 ```
 __test__ is a function returning true or false  
-__cond__ is the boolean result of the current test
+__cond__ is the boolean result of the last test  
 In while...do: html will be processed while boolean result of __test()__ is true.
-In do...while: html will be processed at least once and repeated while __test()__ is true.  
-The function `(cond) => {...}` must manipulate in-scope variables so that __test()__ returns false in order to exit the loop.
+In do...while: html will be processed at least once and repeated while __test()__ is true. (N.B. Initial value of __cond__ is undefined.)  
+The function `(cond) => {...}` must manipulate in-scope variables so that a subsequent __test()__ returns false in order to exit the loop.
 ### helper methods
 #### concat
 ```javascript
