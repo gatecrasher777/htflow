@@ -1,18 +1,24 @@
-// html5 hypertext flow class
+// hypertext flow class
 // (c) 2021 gatecrasher777
-
+// Released under the MIT License.
 
 'use strict'
 
 class htflowClass {
 
 	constructor() {
-		var dtags = 'html,head,style,title,body,address,article,aside,footer,h1,h2,h3,h4,h5,h6,header,hgroup,nav,section,blockquote,dd,div,dl,dt,figcaption,figure,li,main,ol,p,pre,ul,a,abbr,b,bdi,bdo,cite,code,data,time,dfn,em,i,kbd,mark,q,rp,rt,rtc,ruby,s,samp,small,span,strong,sub,sup,time,u,var,area,audio,map,video,object,canvas,noscript,script,del,ins,caption,colgroup,table,tbody,td,tfoot,th,thead,tr,button,datalist,fieldset,form,label,legend,meter,optgroup,option,output,progress,select,textarea,details,dialog,menu,menuitem,summary,content,element,shadow,slot,template,iframe,picture,big'.split(',');
-		var stags = 'base,link,meta,hr,br,wbr,img,track,embed,param,source,col,input'.split(',');
-		dtags.forEach( (t) => { 
+		var dtags = 'a,abbr,address,area,article,aside,audio,b,bdi,bdo,blockquote,body,button,'+
+					'canvas,caption,cite,code,colgroup,data,datalist,dd,del,details,dfn,dialog,'+
+					'div,dl,dt,em,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,head,'+
+					'header,hgroup,html,i,iframe,ins,kbd,label,legend,li,main,map,mark,meter,nav,'+
+					'noscript,object,ol,optgroup,option,output,p,picture,pre,progress,q,rp,rt,rtc,'+
+					'ruby,s,samp,script,section,select,slot,small,span,strong,style,sub,summary,sup,'+
+					'svg,table,tbody,td,template,textarea,tfoot,th,thead,time,title,tr,u,ul,var,video';
+		var stags = 'base,br,col,embed,hr,img,input,link,meta,param,source,track,wbr';
+		dtags.split(',').forEach( (t) => { 
 			this.doubleReg(t);
 		});
-		stags.forEach( (t) => {
+		stags.split(',').forEach( (t) => {
 			this.singleReg(t);
 		});
 	}
