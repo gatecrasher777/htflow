@@ -208,7 +208,7 @@ Generates html5 initial document type string with optional __html__ content.
 ### methods as control structures
 #### doWhile
 ```javascript
-doWhile(test, (cond) => {...});
+ht.doWhile(test, (cond) => {...});
 ```
 __test__ is a function returning true or false.  
 __cond__ is the boolean result of the last test.  
@@ -266,7 +266,7 @@ switch (val) {
 ```
 #### whileDo
 ```javascript
-whileDo(test, (cond) => {...});
+ht.whileDo(test, (cond) => {...});
 ```
 __test__ is a function returning true or false.  
 __cond__ is the boolean result of the last test.   
