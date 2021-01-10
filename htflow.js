@@ -114,11 +114,13 @@ class htflowClass {
 	}
 	
 	forLoop(start,end,html) { 
-		var h='';
 		html = Array.prototype.slice.call(arguments,2);
+		var h = '';
+		var i = 0;
+		var s = '';
 		if (start<end) {
-			for(var i = start; i<=end; i++) {
-				var s = this.item(html,i);
+			for(i = start; i<=end; i++) {
+				s = this.item(html,i);
 				if (s === false) {
 					return h;
 				} else {
@@ -126,8 +128,8 @@ class htflowClass {
 				}
 			}
 		} else {
-			for(var i = start; i>=end; i--) {
-				var s = this.item(html,i);
+			for(i = start; i>=end; i--) {
+				s = this.item(html,i);
 				if (s === false) {
 					return h;
 				} else {
@@ -233,7 +235,7 @@ class htflowClass {
 				} else if (typeof e === 'object') {
 					v+=j+JSON.stringify(e);
 				} else if (typeof e === 'string') {
-					v+=j+'\"'+e+'\"';
+					v+=j+'"'+e+'"';
 				} else {
 					v+=j+e.toString();
 				}
@@ -257,7 +259,7 @@ class htflowClass {
 				} else if (typeof e === 'object') {
 					v+=j+JSON.stringify(e);	
 				} else if (typeof e === 'string') {
-					v+=j+'\"'+e+'\"';
+					v+=j+'"'+e+'"';
 				} else {
 					v+=j+e.toString();
 				}
