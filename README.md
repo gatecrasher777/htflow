@@ -229,7 +229,7 @@ ht.forEach(vals, (e,i,a) => {...});
 Given an array of values __vals__, html is processed sequentially for each array value with e = element, i = index, a = array.
 #### forIn
 ```javascript
-ht.forIn(obj, (k) => {...});
+ht.forIn(obj, (k,v) => {...});
 ```
 Given an object __obj__, html is processed sequentially for each of its enumerable properties with k = key, v = value.
 #### ifElse
