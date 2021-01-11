@@ -122,12 +122,12 @@ var myTable = ht.table(
 					),
 					ht.forIn(
 						e,
-						(k) => {
+						(k,v) => {
 							return ht.td(
 								{
 									align: 'left'
 								},
-								e[k]
+								v
 							)
 						}
 					)
