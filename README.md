@@ -211,9 +211,9 @@ Generates html5 initial document type string with optional __html__ content.
 ht.doWhile(test, (cond) => {...});
 ```
 __test__ is a function returning true or false.  
-__cond__ is the boolean result of the last test.  
-`(cond) => {...}` will be executed while the boolean result of __test()__ is true.  
- in order to exit the loop `(cond) => {...}` must manipulate in-scope variables so that a subsequent __test()__ returns false.
+__cond__ is the boolean result of the last test.   
+`(cond) => {...}` will be executed at least once then repeated while __test()__ is true. (N.B. The initial value of __cond__ is undefined.)  
+In order to exit the loop `(cond) => {...}` must manipulate in-scope variables so that a subsequent __test()__ returns false.
 #### forLoop
 ```javascript
 ht.forLoop(start, end, (i) => {...} );
@@ -268,9 +268,9 @@ switch (val) {
 ht.whileDo(test, (cond) => {...});
 ```
 __test__ is a function returning true or false.  
-__cond__ is the boolean result of the last test.   
-`(cond) => {...}` will be executed at least once then repeated while __test()__ is true. (N.B. The initial value of __cond__ is undefined.)  
-In order to exit the loop `(cond) => {...}` must manipulate in-scope variables so that a subsequent __test()__ returns false.
+__cond__ is the boolean result of the last test.  
+`(cond) => {...}` will be executed while the boolean result of __test()__ is true.  
+ in order to exit the loop `(cond) => {...}` must manipulate in-scope variables so that a subsequent __test()__ returns false.
 ### helper methods
 #### concat
 ```javascript
