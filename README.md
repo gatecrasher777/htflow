@@ -231,8 +231,7 @@ Given an array of values __vals__, html is processed sequentially for each array
 ```javascript
 ht.forIn(obj, (k) => {...});
 ```
-Given an object __obj__, html is processed sequentially for each of its enumerable properties with k = key.  
-To then access the property value in your function use __obj[k]__.
+Given an object __obj__, html is processed sequentially for each of its enumerable properties with k = key, v = value.
 #### ifElse
 ```javascript
 ht.ifElse(cond, htmlIf[, htmlElse]);
