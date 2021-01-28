@@ -1,7 +1,7 @@
 'use strict'
 
-var ht = require('../htflow.js')();
-var assert = require('assert');
+const ht = require('../htflow.js')();
+const assert = require('assert');
 
 describe('Test switchCase method', function() {
 
@@ -38,10 +38,10 @@ describe('Test switchCase method', function() {
     });
 
     it('Should allow fallthrough where Html[n]=\'||\'', function() {
-        var foo = function(v) {
+        let foo = function(v) {
             return v+v+v;
         }
-        var val = 1;
+        let val = 1;
         assert.strictEqual(
             ht.switchCase(
                 val,
