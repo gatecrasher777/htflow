@@ -3,17 +3,17 @@
 
 'use strict'
 
-var ht = require('../htflow.js')();
-var assert = require('assert');
+const ht = require('../htflow.js')();
+const assert = require('assert');
 
 describe('Test a single tagged html element method', function() {
     
-    var s = 'text variable'
-    var f = function() {
+    let s = 'text variable'
+    let f = function() {
         return 'text function';
     }
 
-    var attrib = {
+    let attrib = {
         keywords: 'html, create, flow',
         charset: 'utf8'
     }

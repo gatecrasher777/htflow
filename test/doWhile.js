@@ -1,13 +1,13 @@
 'use strict'
 
-var ht = require('../htflow.js')();
-var assert = require('assert');
+const ht = require('../htflow.js')();
+const assert = require('assert');
 
 describe('test doWhile method',function() {
 
-    var alpha = 6;
-    var beta = 1;
-    var myCond = () => { 
+    let alpha = 6;
+    let beta = 1;
+    let myCond = () => { 
         if (alpha>beta) return true;
         return false;
     };
@@ -59,5 +59,6 @@ describe('test doWhile method',function() {
             '*'
         );
     });
+
 
 });

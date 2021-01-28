@@ -1,19 +1,19 @@
 'use strict'
 
-var ht = require('../htflow.js')();
+const ht = require('../htflow.js')();
 const { strict, strictEqual } = require('assert');
-var assert = require('assert');
+const assert = require('assert');
 
 describe('Test forIn method', function(){
 
-    var a = {
+    const a = {
         'a': 'a',
         'b': 'b',
         'y': 'c',
         'z': 'd'
     };
 
-    var b = {
+    const b = {
         'x': 'foo',
         'y': 3,
         'z': 9
@@ -57,8 +57,8 @@ describe('Test forIn method', function(){
         );
     });
 
-    var c =  ['a','b','c','d'];
-    var d =  ['y',3,'z',9];
+    const c =  ['a','b','c','d'];
+    const d =  ['y',3,'z',9];
 
     it('Should work on arrays too.', function() {
         assert.strictEqual(ht.forIn(c,(k,v)=>{return v}),'abcd');

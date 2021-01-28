@@ -1,11 +1,11 @@
 'use strict'
 
-var ht = require('../htflow.js')();
-var assert = require('assert');
+const ht = require('../htflow.js')();
+const assert = require('assert');
 
 describe('Test cmd helper function and ensure correct quote escaping', function() {
     
-    var doSomething = function(a,b,c) {
+    const doSomething = function(a,b,c) {
         // event handler
     }
 

@@ -13,21 +13,21 @@ Add structured html5 codeflow into your javascript/nodejs projects.
 ## Usage
 #### In client-side javascript:
 ```javascript
-var ht = htflowInit();
+const ht = htflowInit();
 ```
 #### In nodejs:
 ```javascript
-var htflow = require('htflow');
-var ht = htflow();
+const htflow = require('htflow');
+const ht = htflow();
 ```
 or more simply:
 ```javascript
-var ht = require('htflow')();
+const ht = require('htflow')();
 ```
 ## Examples
 #### Build a web page:
 ```javascript
-var myWebPage = ht.doc(
+const myWebPage = ht.doc(
 	ht.html(
 		ht.head(
 			ht.meta(
@@ -94,7 +94,7 @@ var myWebPage = ht.doc(
 ```
 #### Build a table:
 ```javascript
-var myTable = ht.table(
+const myTable = ht.table(
 	{
 		id: 'mytable'
 	},
@@ -122,7 +122,7 @@ var myTable = ht.table(
 					),
 					ht.forIn(
 						e,
-						(k,v) => {
+						(k) => {
 							return ht.td(
 								{
 									align: 'left'
@@ -140,7 +140,7 @@ var myTable = ht.table(
 ```
 #### Build a dropdown control:
 ```javascript
-var mySelect = ht.div(
+const mySelect = ht.div(
 	{
 		id:'control1'
 	},
@@ -159,7 +159,7 @@ var mySelect = ht.div(
 		ht.forEach(
 			[3,6,9,12,15,18,24,30],
 			(e,i,a) => {
-				var a = {
+				let a = {
 					value: e
 				};
 				if (e == wapp.display) a.selected = 'selected';
@@ -211,9 +211,9 @@ Generates html5 initial document type string with optional __html__ content.
 ht.doWhile(test, (cond) => {...});
 ```
 __test__ is a function returning true or false.  
-__cond__ is the boolean result of the last test.   
-`(cond) => {...}` will be executed at least once then repeated while __test()__ is true. (N.B. The initial value of __cond__ is undefined.)  
-In order to exit the loop `(cond) => {...}` must manipulate in-scope variables so that a subsequent __test()__ returns false.
+__cond__ is the boolean result of the last test.  
+`(cond) => {...}` will be executed while the boolean result of __test()__ is true.  
+ in order to exit the loop `(cond) => {...}` must manipulate in-scope variables so that a subsequent __test()__ returns false.
 #### forLoop
 ```javascript
 ht.forLoop(start, end, (i) => {...} );
@@ -231,7 +231,7 @@ Given an array of values __vals__, html is processed sequentially for each array
 ```javascript
 ht.forIn(obj, (k,v) => {...});
 ```
-Given an object __obj__, html is processed sequentially for each of its enumerable properties with k = key, v = value.
+Given an object __obj__, html is processed sequentially for each of its enumerable properties with k = key, v=value.  
 #### ifElse
 ```javascript
 ht.ifElse(cond, htmlIf[, htmlElse]);
@@ -268,9 +268,9 @@ switch (val) {
 ht.whileDo(test, (cond) => {...});
 ```
 __test__ is a function returning true or false.  
-__cond__ is the boolean result of the last test.  
-`(cond) => {...}` will be executed while the boolean result of __test()__ is true.  
- in order to exit the loop `(cond) => {...}` must manipulate in-scope variables so that a subsequent __test()__ returns false.
+__cond__ is the boolean result of the last test.   
+`(cond) => {...}` will be executed at least once then repeated while __test()__ is true. (N.B. The initial value of __cond__ is undefined.)  
+In order to exit the loop `(cond) => {...}` must manipulate in-scope variables so that a subsequent __test()__ returns false.
 ### helper methods
 #### concat
 ```javascript

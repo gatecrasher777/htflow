@@ -1,7 +1,7 @@
 {
   "name": "htflow",
-  "version": "1.0.2",
-  "description": "add structured html5 codeflow into your javascript/nodejs applications",
+  "version": "1.0.3",
+  "description": "add structured html5 codeflow into your javascript/nodejs projects",
   "main": "htflow.js",
   "scripts": {
     "test": "mocha"

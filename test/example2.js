@@ -1,11 +1,11 @@
 'use strict'
 
-var ht = require('../htflow.js')();
-var assert = require('assert');
+const ht = require('../htflow.js')();
+const assert = require('assert');
 
 describe('Test readme example - build a table', function(){
 
-    var myData = [
+    const myData = [
         {
             fn: 'Joseph',
             sn: 'Bloggs',
@@ -29,7 +29,7 @@ describe('Test readme example - build a table', function(){
         }
     ]
 
-    var myTable = ht.table(
+    const myTable = ht.table(
         {
             id: 'mytable'
         },

@@ -1,11 +1,11 @@
 'use strict'
 
-var ht = require('../htflow.js')();
-var assert = require('assert');
+const ht = require('../htflow.js')();
+const assert = require('assert');
 
 describe('Test evt helper function', function() {
     
-    var doSomething = function(event,a,b,c) {
+    let doSomething = function(event,a,b,c) {
         // event handler
     }
 

@@ -1,12 +1,14 @@
 'use strict'
 
-var ht = require('../htflow.js')();
-var assert = require('assert');
+const ht = require('../htflow.js')();
+const { strict, strictEqual } = require('assert');
+const assert = require('assert');
 
 describe('Test forEach method', function(){
 
-    var a = ['a','b','c','d'];
-    var b = ['y',3,'z',9];
+    const a = ['a','b','c','d'];
+    const b = ['y',3,'z',9];
+
 
     it('Should return an empty string with empty, undefined or invalid inputs ', function(){
         assert.strictEqual(ht.forEach(),'');
