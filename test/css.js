@@ -1,11 +1,11 @@
 'use strict'
 
-var ht = require('../htflow.js')();
-var assert = require('assert');
+const ht = require('../htflow.js')();
+const assert = require('assert');
 
 describe('Test css helper function', function(){
 
-    var myStyle = {
+    const myStyle = {
         'max-height': '200px',
         position: 'absolute'
     }
