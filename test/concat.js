@@ -1,12 +1,12 @@
 'use strict'
 
-var ht = require('../htflow.js')();
-var assert = require('assert');
+const ht = require('../htflow.js')();
+const assert = require('assert');
 
 describe('Test the concat helper function',function(){
 
-    var garbage;
-    var obj = {id:'obj'};
+    let garbage;
+    let obj = {id:'obj'};
 
     it('Should handle all input appropriately and gracefully, consistent with doubleTag', function(){
         assert.strictEqual(ht.concat(),'');
