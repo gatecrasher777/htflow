@@ -1,7 +1,7 @@
 'use strict'
 
-var ht = require('../htflow.js')();
-var assert = require('assert');
+const ht = require('../htflow.js')();
+const assert = require('assert');
 
 describe('Test ifElse method',function(){
 
@@ -30,7 +30,7 @@ describe('Test ifElse method',function(){
     });
 
     it('ifHtml should not be evaluated if condition is false', function() {
-        var a;
+        let a;
         assert.strictEqual(
             ht.ifElse(
                 (a!==undefined),
@@ -51,7 +51,7 @@ describe('Test ifElse method',function(){
     });
 
     it('elseHtml should not be evaluated if condition is false', function() {
-        var a;
+        let a;
         assert.strictEqual(
             ht.ifElse(
                 (a===undefined),
