@@ -1,21 +1,21 @@
 'use strict'
 
-var ht = require('../htflow.js')();
-var assert = require('assert');
+const ht = require('../htflow.js')();
+const assert = require('assert');
 
 describe('Test registration of a custom single tagged html element method', function() {
     
-    var s = 'text variable'
-    var f = function() {
+    let s = 'text variable'
+    let f = function() {
         return 'text function';
     }
 
-    var attrib = {
+    let attrib = {
         foo: 'etcetera',
         widget: 'jelly'
     }
 
-    var customTag = 'specimen';
+    const customTag = 'specimen';
 
     ht.singleReg(customTag);
 
