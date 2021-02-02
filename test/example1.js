@@ -70,11 +70,11 @@ describe('Test readme example - build a web page', function(){
     );
     
     it('Should work as expected', function(){
-        assert.strictEqual(myWebPage,'<DOCTYPE html>'+
+        assert.strictEqual(myWebPage,'<!DOCTYPE html>'+
             '<html>'+
                 '<head>'+
-                    '<meta charset="utf8" />'+
-                    '<link rel="stylesheet" href="./css/wapp.css" />'+
+                    '<meta charset="utf8" >'+
+                    '<link rel="stylesheet" href="./css/wapp.css" >'+
                     '<script src="./js/wapp.js"></script>'+
                     '<title>Hello</title>'+
                 '</head>'+
@@ -83,7 +83,7 @@ describe('Test readme example - build a web page', function(){
                         '<div id="hellodiv">'+
                             '<p>hello world</p>'+
                             '<button onclick="wapp.magic();" title="click on me for some magic">'+
-                                '<img src="./img/smileyface.jpg" height="24" width="24" />'+
+                                '<img src="./img/smileyface.jpg" height="24" width="24" >'+
                             '</button>'+
                         '</div>'+
                     '</main>'+
