@@ -70,7 +70,7 @@ class htflowClass {
 	singleTag(tag,attr) {
 		let h = '<'+tag;
 		const a = this.attrStr(attr);
-		(a.length) ? h += a+' />' : h += '>';
+		(a.length) ? h += a+' >' : h += '>';
 		return h;
 	}
 	
@@ -102,7 +102,7 @@ class htflowClass {
 	doc(html) {
 		let h = '';
 		if (html!==undefined) h = this.item(html);
-		return '<DOCTYPE html>'+h;
+		return '<!DOCTYPE html>'+h;
 	}
 
 	ifElse(cond,htmlIf,htmlElse) {
@@ -235,7 +235,7 @@ class htflowClass {
 				} else if (typeof e === 'object') {
 					v+=j+JSON.stringify(e);
 				} else if (typeof e === 'string') {
-					v+=j+'"'+e+'"';
+					v+=j+'\''+e+'\'';
 				} else {
 					v+=j+e.toString();
 				}
@@ -259,7 +259,7 @@ class htflowClass {
 				} else if (typeof e === 'object') {
 					v+=j+JSON.stringify(e);	
 				} else if (typeof e === 'string') {
-					v+=j+'"'+e+'"';
+					v+=j+'\''+e+'\'';
 				} else {
 					v+=j+e.toString();
 				}
