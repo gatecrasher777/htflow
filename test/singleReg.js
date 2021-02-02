@@ -47,9 +47,9 @@ describe('Test registration of a custom single tagged html element method', func
     });
 
     it('Should interpret key/value pairs of an initial object parameter as element atrributes/properties', function() {
-        assert.strictEqual(ht.specimen(attrib),'<specimen foo="etcetera" widget="jelly" />');
-        assert.strictEqual(ht.specimen(attrib,f),'<specimen foo="etcetera" widget="jelly" />');
-        assert.strictEqual(ht.specimen(attrib,attrib),'<specimen foo="etcetera" widget="jelly" />');
+        assert.strictEqual(ht.specimen(attrib),'<specimen foo="etcetera" widget="jelly" >');
+        assert.strictEqual(ht.specimen(attrib,f),'<specimen foo="etcetera" widget="jelly" >');
+        assert.strictEqual(ht.specimen(attrib,attrib),'<specimen foo="etcetera" widget="jelly" >');
     });
 
     it('Should ignore the attribute object if it is not the first parameter', function() {
