@@ -46,9 +46,9 @@ describe('Test a single tagged html element method', function() {
     });
 
     it('Should interpret key/value pairs of an initial object parameter as element atrributes/properties', function() {
-        assert.strictEqual(ht.meta(attrib),'<meta keywords="html, create, flow" charset="utf8" />');
-        assert.strictEqual(ht.meta(attrib,f),'<meta keywords="html, create, flow" charset="utf8" />');
-        assert.strictEqual(ht.meta(attrib,attrib),'<meta keywords="html, create, flow" charset="utf8" />');
+        assert.strictEqual(ht.meta(attrib),'<meta keywords="html, create, flow" charset="utf8" >');
+        assert.strictEqual(ht.meta(attrib,f),'<meta keywords="html, create, flow" charset="utf8" >');
+        assert.strictEqual(ht.meta(attrib,attrib),'<meta keywords="html, create, flow" charset="utf8" >');
     });
 
     it('Should ignore the attribute object if it is not the first parameter', function() {
