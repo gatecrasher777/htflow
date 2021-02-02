@@ -1,6 +1,6 @@
 {
   "name": "htflow",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "add structured html5 codeflow into your javascript/nodejs projects",
   "main": "htflow.js",
   "scripts": {

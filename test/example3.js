@@ -28,12 +28,12 @@ describe('Test readme example - build a dropdown control', function(){
             ht.forEach(
                 [3,6,9,12,15,18,24,30],
                 (e,i,a) => {
-                    let k = {
+                    let attrib = {
                         value: e
                     };
-                    if (e == wapp.display) k.selected = 'selected';
+                    if (e == wapp.display) attrib.selected = 'selected';
                     return ht.option(
-                        k,
+                        attrib,
                         ht.concat(
                             e,
                             ' foobats'

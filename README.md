@@ -159,12 +159,12 @@ const mySelect = ht.div(
 		ht.forEach(
 			[3,6,9,12,15,18,24,30],
 			(e,i,a) => {
-				let a = {
+				let attr = {
 					value: e
 				};
-				if (e == wapp.display) a.selected = 'selected';
+				if (e == wapp.display) attr.selected = 'selected';
 				return ht.option(
-					a,
+					attr,
 					ht.concat(
 						e,
 						' foobats'
